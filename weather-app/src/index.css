@@ -188,7 +188,10 @@ body {
   line-height: 1.1;
 }
 
-.title-1 { font-size: 2rem; }
+.title-1 {
+  font-size: 2rem;
+  font-weight: bold; 
+}
 
 .title-2 {
   font-size: 1.8rem;
@@ -225,11 +228,12 @@ body {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: relative;
   height: 120px;
   z-index: 4;
+  margin-bottom: 3rem;
 }
 
 .header .container, .header-actions {
@@ -345,6 +349,22 @@ search-field::-webkit-search-cancel-button { display: none; }
   margin-inline: auto;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 20px;
+  color: white;
+}
+
+.content-right {
+  margin-top: 2rem;
+  margin-inline: -1rem;
+}
+
 .search-field {
   height: 80px;
   line-height: 80px;
@@ -437,15 +457,31 @@ search-field::-webkit-search-cancel-button { display: none; }
   #MEDIA QUERIES
 \*-----------------------------------*/
 
-@media (min-width: 300px) {
+@media (max-width: 420px) {
   .search-view {
     all:unset;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 500px;
     animation: none;
+    margin-top: 3rem;
+  }
+  .search-field {
+    height: 50px;
+    border-radius: 500px;
+    background-color: #1D1C1F;
+  }
+  .link-div { display: none; }
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .logo img {
+    height: auto;
+    width: 200px;
   }
 }
 
@@ -467,11 +503,6 @@ search-field::-webkit-search-cancel-button { display: none; }
   padding: 20px;
   display: grid;
   grid-template-rows: min-content 1fr;
-}
-
-.badge {
-  top: 20px;
-  right: 20px;
 }
 
 /* HEADER */
@@ -517,7 +548,6 @@ article.container {
 
 .section:not(:last-child) { margin-block: 20px; }
 
-.forecast-card .card-item:not(:last-child) { margin-block-end: 16px; }
 
 .highlights-list { grid-template-columns: 1fr 1fr; }
 
@@ -546,7 +576,6 @@ article.container {
 
 .slider-list::after { min-width: 12px; }
 
-.hourly-forecast .card-sm { padding: 16px; }
 }
 
 /* responsive for screens larger than 1200px */

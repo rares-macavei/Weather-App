@@ -1,10 +1,12 @@
 import Descriptions from "./components/Descriptions";
 import { useEffect, useState } from "react";
+
 import { getFormattedWeatherData } from "./weatherService";
 import logo from './assets/logo.png'
+
 import { BiSearch } from 'react-icons/bi'
-import { BsGithub } from 'react-icons/bs'
-import { BsLinkedin } from 'react-icons/bs'
+import { BsGithub, BsLinkedin } from 'react-icons/bs'
+
 
 function App() {
   const [city, setCity] = useState("Cluj-Napoca");
@@ -59,19 +61,24 @@ function App() {
                 </a>
               </div>
             </div>
-              <div className="card card-sm highlight">
-                <div className="icon">
-                  <h3>{`${weather.name}, ${weather.country}`}</h3>
-                  <img src={weather.iconURL} alt="weatherIcon" />
-                  <h3>{weather.description}</h3>
+            <main>
+              <article className='container'>
+                <div className="card card-sm highlight">
+                  <div className="icon">
+                    <h3 className="title-1">{`${weather.name}, ${weather.country}`}</h3>
+                    <img src={weather.iconURL} alt="weatherIcon" />
+                    <h3>{weather.description}</h3>
+                  </div>
+                  <div className="temperature">
+                    <h1>{`${weather.temp.toFixed()} °C`}</h1>
+                  </div>
                 </div>
-                <div className="temperature">
-                  <h1>{`${weather.temp.toFixed()} °C`}</h1>
+                <div className="content-right">
+                  {/* bottom description */}
+                  <Descriptions weather={weather}/>
                 </div>
-              </div>
-
-              {/* bottom description */}
-              <Descriptions weather={weather}/>
+              </article>
+            </main>
           </div>
         )}
       </div>
